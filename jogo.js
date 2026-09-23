@@ -60,7 +60,12 @@ var T={
  mo:['microwave-oven','#C9D1FF','Micro-ondas'], lav:['washing-machine','#6EC3FF','Máquina de lavar'], gel:['refrigerator','#9BE3F5','Geladeira'],
  vent:['ventilador','#6EC3FF','Ventilador'], cart:['maquininha','#7BD389','Máquina de cartão'], liq:['soybean-milk-maker','#FF8FB1','Liquidificador'],
  ferro:['iron','#FF8FB1','Ferro de passar'], arc:['air-conditioning','#C9D1FF','Ar-condicionado'], fogao:['fogao','#FFB84D','Fogão'],
- calc:['calculator','#7BD389','Calculadora'], elev:['elevator','#C9D1FF','Elevador'], escova:['escova','#6EC3FF','Escova de dentes']
+ calc:['calculator','#7BD389','Calculadora'], elev:['elevator','#C9D1FF','Elevador'], escova:['escova','#6EC3FF','Escova de dentes'],
+ carta:['envelope','#FFE08A','Carta'], telfixo:['phone','#C9D1FF','Telefone fixo'], vela:['spa-candle','#FFE08A','Vela'], leque:['fan','#FF8FB1','Leque'],
+ jornal:['newspaper-folding','#E9ECF7','Jornal'], vitrola:['record-player','#FFB84D','Vitrola'], relpulso:['watch','#7BD389','Relógio de pulso'],
+ tablet:['ipad','#B388FF','Tablet'], controle:['remote-control','#C9D1FF','Controle remoto'], drone:['drone','#6EC3FF','Drone'], carro:['car','#FF6B6B','Carro'],
+ videogame:['gamepad','#B388FF','Videogame'], wifi:['wifi','#6EC3FF','Wi-Fi'], pilha:['battery-full','#7BD389','Pilha'], tomada:['plug','#FFB84D','Tomada'],
+ estet:['stethoscope','#FF6B6B','Estetoscópio'], micro:['microscope','#B388FF','Microscópio'], regua:['ruler','#FFB84D','Régua'], fita:['tape-measure','#FFD43B','Fita métrica']
 };
 /* figuras dos problemas */
 var P={
@@ -70,7 +75,7 @@ var P={
  mercado:['shopping-cart','#7BD389'], sacola:['shopping-bag','#FF8FB1'], noite:['moon','#FFE08A'], febre:['hospital-bed','#6EC3FF'], olhos:['eyes','#6EC3FF'],
  mudo:['volume-mute','#C9D1FF'], dentes:['teeth','#FFFFFF'], parque:['tree-one','#7BD389'], remedio:['pill','#FF8FB1'], casa:['home','#FFB84D'],
  chuva:['heavy-rain','#6EC3FF'], bolo:['birthday-cake','#FF8FB1'], musica:['music','#B388FF'], dormir:['sleep-two','#B8C2FF'], coelho:['rabbit','#FFC7D6'],
- foto:['picture','#FF8FB1'], acordar:['sunrise','#FFB84D']
+ foto:['picture','#FF8FB1'], acordar:['sunrise','#FFB84D'], jornal:['newspaper-folding','#E9ECF7'], mesa:['triangle-ruler','#FFB84D']
 };
 
 /* ======================================================================
@@ -121,7 +126,28 @@ var MUNDOS=[
   {r:'termo',ok:[0],op:[['febre','Ver se tem febre'],['caminho','Mostrar o caminho'],['foto','Tirar foto']],x:'O termômetro mede se a gente está com febre.',f:['thermometer','#FF6B6B','Termômetro']},
   {r:'vent',ok:[0],op:[['calor','Refrescar no calor'],['leite','Guardar o leite'],['acordar','Acordar cedo']],x:'O ventilador refresca quando está calor.',f:['whirlwind','#B8C2FF','Ventinho']},
   {r:'semaf',ok:[0],op:[['carro','Ajudar a atravessar a rua'],['morango','Fazer suco'],['dentes','Limpar os dentes']],x:'O semáforo organiza a rua para a gente atravessar com segurança.',f:['semaforo','#C9D1FF','Semáforo']},
-  {r:'cel',ok:[0,1,2],op:[['casa','Ver a vovó que mora longe'],['foto','Tirar foto'],['caminho','Mostrar o caminho'],['roupa','Lavar a roupa']],x:'O celular faz muitas coisas: chamada de vídeo, foto, mapa… Só não lava roupa!',f:['iphone','#6EC3FF','Celular']}]}
+  {r:'cel',ok:[0,1,2],op:[['casa','Ver a vovó que mora longe'],['foto','Tirar foto'],['caminho','Mostrar o caminho'],['roupa','Lavar a roupa']],x:'O celular faz muitas coisas: chamada de vídeo, foto, mapa… Só não lava roupa!',f:['iphone','#6EC3FF','Celular']}]},
+ {nome:'Antes e agora',ic:['hourglass','#FFB84D'],cor:'#F6EEDD',selo:'#C9A27A',txt:'Como as pessoas resolviam esses problemas antigamente? Agora são 4 opções.',fases:[
+  {e:'casa',p:'Antes do celular, como as pessoas mandavam notícias para quem morava longe?',ok:['carta','telfixo'],op:['carta','telfixo','drone','tablet'],x:'Escreviam cartas e usavam o telefone fixo, que ficava preso na parede.',f:['stamp','#FF8FB1','Selo postal']},
+  {e:'escuro',p:'Antes da lâmpada, como as casas eram iluminadas à noite?',ok:['vela'],op:['vela','lan','controle','wifi'],x:'Com velas e lampiões. A lâmpada elétrica chegou depois.',f:['spa-candle','#FFE08A','Velinha']},
+  {e:'calor',p:'Antes do ventilador, como as pessoas se refrescavam?',ok:['leque'],op:['leque','arc','vitrola','mo'],x:'Abanavam com um leque. O ventilador e o ar-condicionado vieram depois.',f:['fan','#FF8FB1','Leque']},
+  {e:'musica',p:'Antes do celular, como se ouvia música em casa?',ok:['rad','vitrola'],op:['rad','vitrola','tablet','drone'],x:'No rádio e na vitrola, que toca discos grandes.',f:['music-cd','#B388FF','Disco']},
+  {e:'jornal',p:'Antes da internet, como as pessoas liam e ouviam as notícias do dia?',ok:['jornal','rad','tv'],op:['jornal','rad','tv','videogame'],x:'No jornal de papel, no rádio e na televisão.',f:['newspaper-folding','#E9ECF7','Jornal']},
+  {e:'relogio',p:'Antes do celular, como as pessoas sabiam as horas na rua?',ok:['relpulso'],op:['relpulso','calc','carta','lan'],x:'Olhando o relógio de pulso ou o relógio grande da praça.',f:['watch','#7BD389','Relógio de pulso']}]},
+ {nome:'Detetive do Tito',ic:['search','#B388FF'],cor:'#EDE6FF',selo:'#9B7BFF',txt:'Ao contrário: três resolvem, e você acha a que NÃO resolve.',fases:[
+  {t:'intruso',e:'escuro',p:'Preciso enxergar no escuro.',ok:['gel'],op:['lan','lam','vela','gel'],x:'Lanterna, lâmpada e vela iluminam. A geladeira só deixa as coisas geladas.',f:['torch','#FFB84D','Tocha']},
+  {t:'intruso',e:'musica',p:'Quero ouvir música.',ok:['ferro'],op:['rad','cel','som','ferro'],x:'Rádio, celular e caixa de som tocam música. O ferro só passa roupa.',f:['music','#B388FF','Nota musical']},
+  {t:'intruso',e:'comida',p:'Quero preparar a comida.',ok:['imp'],op:['fogao','mo','liq','imp'],x:'Fogão, micro-ondas e liquidificador ajudam na cozinha. A impressora não.',f:['knife-fork','#C9D1FF','Talheres']},
+  {t:'intruso',e:'caminho',p:'Quero chegar à casa da minha tia, que mora em outra cidade.',ok:['escova'],op:['onibus','carro','bici','escova'],x:'Ônibus, carro e bicicleta levam a gente. A escova de dentes não anda!',f:['road-sign','#FFB84D','Placa']},
+  {t:'intruso',e:'casa',p:'Quero conversar com a vovó que mora longe.',ok:['termo'],op:['cel','telfixo','carta','termo'],x:'Celular, telefone fixo e carta levam a conversa. O termômetro só mede a febre.',f:['envelope','#FFE08A','Cartinha']},
+  {t:'intruso',e:'relogio',p:'Preciso saber que horas são.',ok:['liq'],op:['rel','relpulso','cel','liq'],x:'Relógio de parede, relógio de pulso e celular mostram as horas. O liquidificador não.',f:['stopwatch','#7BD389','Cronômetro']}]},
+ {nome:'Desafios do Tito',ic:['robot-one','#6EC3FF'],cor:'#DFF6F2',selo:'#2CBFA9',txt:'Os mais difíceis: 5 opções, energia, internet e medidas.',fases:[
+  {e:'escuro',p:'A lanterna apagou. O que ela precisa para acender de novo?',ok:['pilha'],op:['pilha','wifi','tomada','carta','regua'],x:'A lanterna funciona com pilha. Quando a pilha acaba, é só trocar.',f:['battery-full','#7BD389','Pilha']},
+  {e:'casa',p:'A geladeira e a televisão não funcionam sem o quê?',ok:['tomada'],op:['tomada','pilha','wifi','controle','carta'],x:'Elas precisam da energia elétrica, que chega pela tomada.',f:['plug','#FFB84D','Tomada']},
+  {e:'video',p:'Quais aparelhos mostram vídeos da internet?',ok:['cel','comp','tablet'],op:['cel','comp','tablet','ferro','vela'],x:'Celular, computador e tablet mostram vídeos, quando têm internet.',f:['ipad','#B388FF','Tablet']},
+  {r:'wifi',ok:[0],op:[['video','Levar a internet até os aparelhos'],['comida','Esquentar a comida'],['roupa','Lavar a roupa'],['febre','Medir a febre']],x:'O Wi-Fi leva a internet, sem fio, até o celular, o tablet e o computador.',f:['wifi','#6EC3FF','Wi-Fi']},
+  {e:'febre',p:'O médico quer ouvir o coração e ver se tem febre.',ok:['estet','termo'],op:['estet','termo','micro','calc','drone'],x:'O estetoscópio escuta o coração e o termômetro mede a febre.',f:['stethoscope','#FF6B6B','Estetoscópio']},
+  {e:'mesa',p:'Quero medir o tamanho da mesa.',ok:['regua','fita'],op:['regua','fita','rel','calc','termo'],x:'A régua e a fita métrica medem tamanhos. O termômetro mede temperatura e a calculadora faz contas.',f:['tape-measure','#FFD43B','Fita métrica']}]}
 ];
 var FASES=[]; MUNDOS.forEach(function(m,mi){ m.fases.forEach(function(f,fi){ f.m=mi; f.i=fi; FASES.push(f); }); });
 var NUM=['','uma','duas','três','quatro'];
@@ -281,6 +307,9 @@ function joga(i){
   if(L.r){
     perg='Para que serve?'; apoio=multi?'Ela resolve vários problemas. Encontre as '+NUM[L.ok.length]+' respostas certas!':'Toque no problema que ela resolve.';
     fig=desenho(T[L.r]); texto=T[L.r][2]; sub='Que problema ela resolve?';
+  } else if(L.t==='intruso'){
+    perg='Qual NÃO resolve?'; apoio='Três resolvem o problema. Toque na única que NÃO resolve.';
+    fig=desenho(P[L.e]); texto=L.p; sub='Cuidado: aqui você procura a que não ajuda.';
   } else {
     perg='Qual tecnologia resolve?'; apoio=multi?'Aqui '+NUM[L.ok.length]+' tecnologias resolvem. Encontre as '+NUM[L.ok.length]+'!':'Toque na tecnologia que resolve o problema.';
     fig=desenho(P[L.e]); texto=L.p; sub=null;
@@ -315,15 +344,16 @@ function avisa(t,tipo,ic){
   var c=el('div','aviso-caixa'+(tipo?' '+tipo:''),ic?ui(ic):''); c.appendChild(txt('span',null,t)); a.appendChild(c);
 }
 function escolhe(b){
-  if(trava||b.classList.contains('certa')||b.classList.contains('fora')) return;
+  if(trava||b.classList.contains('certa')||b.classList.contains('fora')||b.classList.contains('resolve')) return;
   if(b._certo){
     b.classList.add('certa'); b.appendChild(el('span','ok-op',CHECK)); achadas++; tom([523]); faiscas(b); contador();
     if(achadas>=L.ok.length){ trava=true; reage('feliz'); depois(800,conclui); }
     else { reage('feliz'); avisa('Isso! Tem mais '+NUM[L.ok.length-achadas]+' que também resolve.','bom','feito'); }
   } else {
     erros++; tom([330]); reage('pensando');
-    b.classList.add('fora'); if(est.anim){ b.classList.remove('balanca'); void b.offsetWidth; b.classList.add('balanca'); }
-    var frases=L.r?['Essa não é o que ela faz. Tudo bem, tente outra!','Pense: para que a gente usa essa tecnologia?']
+    b.classList.add(L.t==='intruso'?'resolve':'fora'); if(est.anim){ b.classList.remove('balanca'); void b.offsetWidth; b.classList.add('balanca'); }
+    var frases=L.t==='intruso'?['Essa resolve, sim! Procure a que NÃO resolve.','Pense: o que cada uma faz? Qual não tem nada a ver com o problema?']
+                  :L.r?['Essa não é o que ela faz. Tudo bem, tente outra!','Pense: para que a gente usa essa tecnologia?']
                   :['Essa não resolve este problema. Tudo bem, tente outra!','Pense: o que precisa acontecer para resolver?'];
     avisa(frases[Math.min(erros-1,frases.length-1)],null,'pensa');
     if(erros>=2) $('btDica').classList.add('chama');
@@ -331,7 +361,12 @@ function escolhe(b){
 }
 function dica(){
   $('btDica').classList.remove('chama');
-  var errados=botoes.filter(function(b){ return !b._certo&&!b.classList.contains('fora'); });
+  var errados=botoes.filter(function(b){ return !b._certo&&!b.classList.contains('fora')&&!b.classList.contains('resolve'); });
+  if(L.t==='intruso'){
+    if(!errados.length){ avisa('Só sobrou uma: é ela que NÃO resolve!','dica','dica'); return; }
+    errados[0].classList.add('resolve');
+    avisa('Marquei uma que resolve. A que você procura está entre as outras!','dica','dica'); return;
+  }
   if(!errados.length){ avisa('Todas as que sobraram resolvem! Toque nelas.','dica','dica'); return; }
   errados[0].classList.add('fora');
   avisa('Tirei uma que não resolve. Sobrou menos para escolher!','dica','dica');
