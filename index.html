@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#E9EFFF">
+<title>Qual tecnologia resolve?</title>
+<meta name="description" content="Jogo para crianças: descubra qual tecnologia resolve cada problema do dia a dia, em casa, na escola, na rua e no cuidado com a saúde.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fontes/fredoka-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fontes/nunito-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="ceu" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="nuvem n1"></span><span class="nuvem n2"></span></div>
+
+<header class="barra">
+  <button class="marca" id="btInicio" aria-label="Ir para o mapa"><span><b>Qual tecnologia resolve?</b><small>Jogo das tecnologias com o robô Tito</small></span></button>
+  <button class="bt-barra" id="btMapa"><span>Mapa</span></button>
+  <button class="bt-barra" id="btAlbum"><span>Álbum</span></button>
+  <button class="bt-barra" id="btAjustes" aria-label="Ajustes"><span>Ajustes</span></button>
+</header>
+
+<main>
+  <section class="tela" id="mapa"></section>
+
+  <section class="tela oculto" id="jogo">
+    <div class="jogo-topo">
+      <button class="bt-voltar" id="btVoltar">Mapa</button>
+      <div class="chip" id="chipMundo"></div>
+      <div class="passos" id="passos" aria-hidden="true"></div>
+      <button class="bt-redondo" id="btOuvir" aria-label="Ouvir o problema"></button>
+    </div>
+    <div class="fala">
+      <div id="mascoteJogo"></div>
+      <div class="balao"><div class="balao-txt" id="pergunta" aria-live="polite"></div></div>
+    </div>
+    <div class="cena" id="cena"></div>
+    <div class="contador" id="contador"></div>
+    <div class="opcoes" id="opcoes"></div>
+    <div class="aviso" id="aviso" aria-live="polite"></div>
+    <button class="bt-dica" id="btDica">Quero uma dica</button>
+  </section>
+
+  <section class="tela oculto" id="album"></section>
+  <section class="tela oculto" id="ajustes"></section>
+</main>
+
+<div class="veu oculto" id="premio" role="dialog" aria-modal="true" aria-labelledby="premioTit"></div>
+
+<script src="icones.js"></script>
+<script src="jogo.js"></script>
+</body>
+</html>
