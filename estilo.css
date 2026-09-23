@@ -318,3 +318,8 @@ body.sem-animacao .ceu .nuvem{display:none}
   .opcoes{gap:12px}
   .opcao{width:calc(50% - 8px);max-width:180px;min-height:150px}
 }
+/* modo "qual NÃO resolve?": as que resolvem ficam marcadas em azul */
+.opcao.resolve{background:var(--azul-suave);box-shadow:0 8px 0 var(--azul-borda);cursor:default;animation:none}
+.opcao.resolve:hover{transform:none}
+.opcao.resolve .t{color:var(--tinta-2)}
+.opcao.resolve::after{content:"resolve";position:absolute;top:-10px;right:-6px;background:var(--azul);color:#fff;font-family:var(--titulo);font-size:13px;padding:3px 9px;border-radius:20px;border:3px solid #fff}
